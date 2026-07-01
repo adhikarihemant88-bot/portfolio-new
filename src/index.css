@@ -1,0 +1,116 @@
+:root {
+  --bg: #07080c;
+  --page-glow: radial-gradient(circle at top, rgba(174, 182, 255, 0.14), transparent 28%),
+    radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.08), transparent 22%);
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --text: #b7bdca;
+  --text-muted: #8c93a4;
+  --text-strong: #f6f7fb;
+  --accent: #aeb6ff;
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-strong: rgba(255, 255, 255, 0.04);
+  --surface-ghost: rgba(255, 255, 255, 0.06);
+  --button-primary-bg: linear-gradient(135deg, #ffffff, #d5d8e4);
+  --button-primary-text: #080b12;
+  --button-secondary-bg: rgba(255, 255, 255, 0.04);
+  --button-secondary-border: rgba(255, 255, 255, 0.12);
+  --chip-bg: rgba(255, 255, 255, 0.04);
+  --chip-border: rgba(255, 255, 255, 0.08);
+  --line-soft: rgba(255, 255, 255, 0.08);
+  --grid-overlay: rgba(255, 255, 255, 0.02);
+  --code-line-number: rgba(255, 255, 255, 0.32);
+  --code-cursor: rgba(255, 255, 255, 0.72);
+  --font-body: 'Avenir Next', 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --font-display: 'Georgia', 'Times New Roman', serif;
+
+  font-family: var(--font-body);
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text);
+  background: var(--page-glow), var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+:root[data-theme='light'] {
+  --bg: #f5f4ef;
+  --page-glow: radial-gradient(circle at top, rgba(116, 128, 235, 0.12), transparent 28%),
+    radial-gradient(circle at 18% 16%, rgba(0, 0, 0, 0.04), transparent 22%);
+  --border: rgba(17, 24, 39, 0.08);
+  --border-strong: rgba(17, 24, 39, 0.16);
+  --text: #404756;
+  --text-muted: #697180;
+  --text-strong: #111827;
+  --accent: #5a67d8;
+  --surface: rgba(255, 255, 255, 0.7);
+  --surface-strong: rgba(255, 255, 255, 0.88);
+  --surface-ghost: rgba(17, 24, 39, 0.04);
+  --button-primary-bg: linear-gradient(135deg, #111827, #374151);
+  --button-primary-text: #ffffff;
+  --button-secondary-bg: rgba(17, 24, 39, 0.03);
+  --button-secondary-border: rgba(17, 24, 39, 0.12);
+  --chip-bg: rgba(17, 24, 39, 0.04);
+  --chip-border: rgba(17, 24, 39, 0.08);
+  --line-soft: rgba(17, 24, 39, 0.08);
+  --grid-overlay: rgba(17, 24, 39, 0.03);
+  --code-line-number: rgba(17, 24, 39, 0.36);
+  --code-cursor: rgba(17, 24, 39, 0.72);
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--grid-overlay) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-overlay) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), transparent 82%);
+}
+
+a {
+  color: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
