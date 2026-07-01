@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import "./App.css";
 
 const stats = [
@@ -79,19 +79,19 @@ const skillGroups = [
 
 const timeline = [
   {
-    year: "Sept 2025 - july 2026",
+    year: "Sep 2025 - Jul 2026",
     title: "Full Stack Developer at Gokwik",
     detail:
       "Worked as a Full-Stack Developer at GoKwik, contributing to checkout enhancements by implementing discounting, partial payment, and Buy Now Pay Later (BNPL) features, improving the overall customer payment experience.",
   },
   {
-    year: "Sept 2025 - july 2026",
+    year: "Sep 2025 - Jul 2026",
     title: "Software Developer ",
     detail:
       "Worked as a Software Developer at InsuranceDekho, where I built and optimized backend services for insurance journeys, implemented role-based access control (RBAC), and developed scalable microservices to improve platform performance and reliability.",
   },
   {
-    year: "Intership",
+    year: "Internship",
     title: "EvriKart & Doubtnut",
     detail:
       "At EvriKart Worked as a Frontend Development Intern, developing responsive user interfaces using HTML, CSS, Bootstrap, and JavaScript while collaborating with the team to enhance the user experience. At Doubtnut worked as a content Creator helping students solve IIT_JEE problems",
@@ -104,7 +104,7 @@ const projects = [
     status: "Completed",
     summary:
       "A premium personal portfolio featuring a clean hero section, interactive project showcases, and seamless navigation. Designed with a strong focus on UI/UX, responsiveness, and an engaging user experience across all devices. including a Dark and light Theme feature",
-    stack: ["React", "TypeScript", "vit", "UI/UX"],
+    stack: ["React", "TypeScript", "Vite", "UI/UX"],
     liveUrl: "#home",
     codeUrl: "https://github.com/your-username/portfolio-os",
   },
@@ -126,12 +126,15 @@ const projects = [
     name: "Relation Based auth service",
     status: "Ongoing",
     summary:
-      "Developed a Role-Based Access System (RBAS) to provide secure authentication and authorization across multiple organizations. Implemented JWT-based authentication, role and permission management, and scalable access control to support multi-tenant applications.",
+      "Developed a Role-Based Access System (RBAC) to provide secure authentication and authorization across multiple organizations. Implemented JWT-based authentication, role and permission management, and scalable access control to support multi-tenant applications.",
     stack: ["Frontend", "Static host", "Interaction"],
     // liveUrl: 'https://example.com',
     // codeUrl: 'https://github.com/your-username/tiny-url-studio',
   },
 ];
+
+const isExternalLink = (href: string) =>
+  href.startsWith("http://") || href.startsWith("https://");
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -235,9 +238,10 @@ function App() {
               <a
                 className="button button-primary"
                 href={resumeUrl}
-                download="resume.pdf"
+                target="_blank"
+                rel="noreferrer"
               >
-                Download resume
+                View resume
               </a>
               <a className="button button-secondary" href="#contact">
                 Contact
@@ -445,8 +449,12 @@ function App() {
                     {project.liveUrl && (
                       <a
                         href={project.liveUrl}
-                        target="_blank"
-                        rel="noreferrer"
+                        target={
+                          isExternalLink(project.liveUrl) ? "_blank" : undefined
+                        }
+                        rel={
+                          isExternalLink(project.liveUrl) ? "noreferrer" : undefined
+                        }
                       >
                         Live demo
                       </a>
@@ -477,7 +485,7 @@ function App() {
           <div className="contact-card card reveal">
             <p>
               I'm always open to discussing new opportunities, exciting
-              projects, or innovative ideas. Feel free to reach out—I'd be happy
+              projects, or innovative ideas. Feel free to reach out - I'd be happy
               to connect and collaborate.
             </p>
 
@@ -506,3 +514,4 @@ function App() {
 }
 
 export default App;
+
