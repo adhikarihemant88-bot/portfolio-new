@@ -139,7 +139,9 @@ const isExternalLink = (href: string) =>
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [typedCode, setTypedCode] = useState("");
-  const [photoSrc, setPhotoSrc] = useState("/public/my-port-2.png");
+  const [photoSrc, setPhotoSrc] = useState(
+    `${import.meta.env.BASE_URL}my-port-2.png`,
+  );
   const [theme, setTheme] = useState<"dark" | "light">(() => {
     if (typeof window === "undefined") {
       return "dark";
@@ -268,7 +270,9 @@ function App() {
                   alt="Portrait of Hemant Singh Adhikari"
                   loading="eager"
                   fetchPriority="high"
-                  onError={() => setPhotoSrc('/public/my-port-1.png')}
+                  onError={() =>
+                    setPhotoSrc(`${import.meta.env.BASE_URL}my-port-1.png`)
+                  }
                 />
               </div>
 
@@ -278,7 +282,9 @@ function App() {
                  Designing systems built for scale and reliability.
                 </strong>
                 <span>
-                  Passionate about backend engineering, clean architecture, and building products that balance performance, maintainability, and user experience.
+                  Passionate about backend engineering, clean architecture, and
+                  building products that balance performance, maintainability,
+                  and user experience.
                 </span>
               </div>
             </div>
