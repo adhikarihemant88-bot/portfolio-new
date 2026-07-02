@@ -139,7 +139,7 @@ const isExternalLink = (href: string) =>
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [typedCode, setTypedCode] = useState("");
-  const [photoSrc, setPhotoSrc] = useState("/photo.jpg");
+  const [photoSrc, setPhotoSrc] = useState("/public/my-port-2.png");
   const [theme, setTheme] = useState<"dark" | "light">(() => {
     if (typeof window === "undefined") {
       return "dark";
@@ -268,7 +268,7 @@ function App() {
                   alt="Portrait of Hemant Singh Adhikari"
                   loading="eager"
                   fetchPriority="high"
-                  onError={() => setPhotoSrc('/public/my-port-2.png')}
+                  onError={() => setPhotoSrc('/public/my-port-1.png')}
                 />
               </div>
 
