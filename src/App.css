@@ -216,6 +216,10 @@ h1 {
   margin-top: 30px;
 }
 
+.hero-grid-inline {
+  margin-top: 28px;
+}
+
 .button {
   padding: 14px 20px;
   border: 1px solid transparent;
@@ -248,21 +252,61 @@ h1 {
   backdrop-filter: blur(18px);
 }
 
-.hero-feature {
+.hero-photo-card {
   display: grid;
-  gap: 10px;
-  padding: 26px;
+  gap: 18px;
+  padding: 18px;
 }
 
-.hero-feature strong {
+.hero-photo-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  aspect-ratio: 4 / 5;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.12), transparent 28%),
+    linear-gradient(135deg, rgba(174, 182, 255, 0.24), rgba(255, 156, 102, 0.18)),
+    var(--surface-ghost);
+}
+
+.hero-photo-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 28%, rgba(0, 0, 0, 0.28) 100%);
+  pointer-events: none;
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero-photo-copy {
+  display: grid;
+  gap: 10px;
+  padding: 4px 6px 8px;
+}
+
+.hero-photo-copy strong {
   font-size: 1.4rem;
   line-height: 1.18;
   color: var(--text-strong);
 }
 
-.hero-feature span {
+.hero-photo-copy span {
   color: var(--text);
   line-height: 1.6;
+}
+
+.hero-photo-copy code {
+  padding: 2px 6px;
+  border-radius: 8px;
+  background: var(--surface-ghost);
+  color: var(--text-strong);
+  font-size: 0.9em;
 }
 
 .hero-grid {
@@ -641,6 +685,10 @@ h2 {
   .hero-grid {
     grid-template-columns: 1fr;
   }
+
+  .hero-photo-wrap {
+    aspect-ratio: 16 / 11;
+  }
 }
 
 @media (max-width: 640px) {
@@ -670,10 +718,14 @@ h2 {
     padding-top: 24px;
   }
 
+  .hero-grid-inline {
+    margin-top: 22px;
+  }
+
   .card,
   .info-card,
   .code-card,
-  .hero-feature,
+  .hero-photo-card,
   .timeline-item {
     padding: 20px;
     border-radius: 22px;

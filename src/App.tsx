@@ -2,9 +2,9 @@
 import "./App.css";
 
 const stats = [
-  { value: "4+", label: "featured builds" },
-  { value: "1 page", label: "clean portfolio flow" },
-  { value: "100%", label: "static-hosting ready" },
+  { value: "3+", label: "Years Experience, GoKwik, Insurance Dekho" },
+  { value: "1000+", label: "DSA Problems Solved, " },
+  { value: "IIT Roorkee Alumini", label: "Graduted from IIT Roorkee in 2023" },
 ];
 
 const codeLines = [
@@ -80,21 +80,21 @@ const skillGroups = [
 const timeline = [
   {
     year: "Sep 2025 - Jul 2026",
-    title: "Full Stack Developer at Gokwik",
+    title: "Full Stack Developer -- Gokwik",
     detail:
-      "Worked as a Full-Stack Developer at GoKwik, contributing to checkout enhancements by implementing discounting, partial payment, and Buy Now Pay Later (BNPL) features, improving the overall customer payment experience.",
+      "Contributed to the development of checkout and payment solutions, including discounting, Partial Payments, and Buy Now Pay Later (BNPL). Worked across backend services and frontend integrations while focusing on performance, scalability, and delivering a seamless customer payment experience.",
   },
   {
     year: "Sep 2025 - Jul 2026",
-    title: "Software Developer ",
+    title: "Software Developer -- Insurance Dekho",
     detail:
-      "Worked as a Software Developer at InsuranceDekho, where I built and optimized backend services for insurance journeys, implemented role-based access control (RBAC), and developed scalable microservices to improve platform performance and reliability.",
+      "Designed and optimized backend services powering digital insurance journeys. Built scalable microservices, implemented Role-Based Access Control (RBAC), improved API performance, and contributed to systems that enhanced platform reliability, security, and maintainability.",
   },
   {
     year: "Internship",
     title: "EvriKart & Doubtnut",
     detail:
-      "At EvriKart Worked as a Frontend Development Intern, developing responsive user interfaces using HTML, CSS, Bootstrap, and JavaScript while collaborating with the team to enhance the user experience. At Doubtnut worked as a content Creator helping students solve IIT_JEE problems",
+      "Started my software engineering journey as a Frontend Development Intern at EvriKart, where I built responsive web interfaces using HTML, CSS, Bootstrap, and JavaScript. At Doubtnut, I contributed as an academic content creator, developing problem-solving material for IIT-JEE aspirants.",
   },
 ];
 
@@ -103,7 +103,7 @@ const projects = [
     name: "Portfolio OS",
     status: "Completed",
     summary:
-      "A premium personal portfolio featuring a clean hero section, interactive project showcases, and seamless navigation. Designed with a strong focus on UI/UX, responsiveness, and an engaging user experience across all devices. including a Dark and light Theme feature",
+      "A modern portfolio built with React and TypeScript, designed to showcase projects, experience, and technical expertise through clean UI, smooth interactions, responsive layouts, and a polished user experience.",
     stack: ["React", "TypeScript", "Vite", "UI/UX"],
     liveUrl: "#home",
     codeUrl: "https://github.com/your-username/portfolio-os",
@@ -112,7 +112,7 @@ const projects = [
     name: "URL Shortener",
     status: "Ongoing",
     summary:
-      "Built a scalable URL Shortener that generates unique short links, tracks analytics, and efficiently redirects users to the original URLs. Designed with a focus on performance, reliability, and a clean, intuitive user experience.",
+      "A production-inspired URL shortening service featuring unique short-code generation, analytics tracking, efficient redirection, and scalable backend architecture. Designed with performance, maintainability, and extensibility in mind.",
     stack: [
       "Low-Level Design (LLD)",
       "High-Level Design (HLD)",
@@ -123,11 +123,11 @@ const projects = [
     // codeUrl: 'https://github.com/your-username/tiny-url-studio',
   },
   {
-    name: "Relation Based auth service",
+    name: "Identity & Access Management (IAM)",
     status: "Ongoing",
     summary:
-      "Developed a Role-Based Access System (RBAC) to provide secure authentication and authorization across multiple organizations. Implemented JWT-based authentication, role and permission management, and scalable access control to support multi-tenant applications.",
-    stack: ["Frontend", "Static host", "Interaction"],
+      "A scalable Identity and Access Management service supporting JWT authentication, Role-Based Access Control (RBAC), multi-tenant authorization, Redis-backed session management, and fine-grained permission handling for enterprise applications.",
+    stack: ["Node.js", "Redis", "JWT", "PostgreSQL", "RBAC", "System Design"],
     // liveUrl: 'https://example.com',
     // codeUrl: 'https://github.com/your-username/tiny-url-studio',
   },
@@ -139,6 +139,7 @@ const isExternalLink = (href: string) =>
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [typedCode, setTypedCode] = useState("");
+  const [photoSrc, setPhotoSrc] = useState("/photo.jpg");
   const [theme, setTheme] = useState<"dark" | "light">(() => {
     if (typeof window === "undefined") {
       return "dark";
@@ -155,7 +156,6 @@ function App() {
       : "dark";
   });
   const resumeUrl = `https://drive.google.com/file/d/1wCTdV29286XsdQVOInjS7uh1g0OgHf_g/view?usp=sharing`;
-
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     window.localStorage.setItem("theme", theme);
@@ -202,7 +202,7 @@ function App() {
           <span className="brand-mark">H</span>
           <span className="brand-copy">
             <strong>Hemant Singh Adhikari</strong>
-            <span>Full-Stack Developer</span>
+            <span>Software Engineer</span>
           </span>
         </a>
 
@@ -223,10 +223,9 @@ function App() {
       <main className="main">
         <section className="hero" id="home">
           <div className="hero-copy reveal">
-            <p className="eyebrow">Hemant's Portfolio web</p>
+            <p className="eyebrow">Software Engineer</p>
             <h1>
-              Clean, premium portfolio design for work that deserves to be taken
-              seriously.
+              Building scalable systems with a calm, product-minded approach.
             </h1>
             <p className="lede">
               Software Engineer with 3+ years of experience building scalable
@@ -234,6 +233,14 @@ function App() {
               Passionate about distributed systems, AI, and clean architecture.
             </p>
 
+            <div className="hero-grid hero-grid-inline">
+              {stats.map((item) => (
+                <article className="metric" key={item.label}>
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </article>
+              ))}
+            </div>
             <div className="hero-actions">
               <a
                 className="button button-primary"
@@ -244,33 +251,36 @@ function App() {
                 View resume
               </a>
               <a className="button button-secondary" href="#contact">
-                Contact
+                Let's Connect
               </a>
               <a className="button button-secondary" href="#projects">
-                View projects
+                Explore Projects
               </a>
             </div>
           </div>
 
-          <aside className="hero-panel reveal" aria-label="Highlights">
-            <div className="hero-card hero-feature">
-              <p className="panel-label">Focus</p>
-              <strong>
-                Restrained visuals, strong hierarchy, subtle motion.
-              </strong>
-              <span>
-                Built for a professional impression on desktop, laptop, and 4K
-                ultrawide displays.
-              </span>
-            </div>
+          <aside className="hero-panel reveal" aria-label="Profile spotlight">
+            <div className="hero-card hero-photo-card">
+              <div className="hero-photo-wrap">
+                <img
+                  className="hero-photo"
+                  src={photoSrc}
+                  alt="Portrait of Hemant Singh Adhikari"
+                  loading="eager"
+                  fetchPriority="high"
+                  onError={() => setPhotoSrc('/public/my-port-2.png')}
+                />
+              </div>
 
-            <div className="hero-grid">
-              {stats.map((item) => (
-                <article className="metric" key={item.label}>
-                  <strong>{item.value}</strong>
-                  <span>{item.label}</span>
-                </article>
-              ))}
+              <div className="hero-photo-copy">
+                <p className="panel-label">Featured profile</p>
+                <strong>
+                 Designing systems built for scale and reliability.
+                </strong>
+                <span>
+                  Passionate about backend engineering, clean architecture, and building products that balance performance, maintainability, and user experience.
+                </span>
+              </div>
             </div>
           </aside>
         </section>
@@ -302,7 +312,7 @@ function App() {
         <section className="section code-section" id="code">
           <div className="section-heading reveal">
             <p className="section-kicker">About Me</p>
-            <h2>A coded identity block with a calm, editorial feel.</h2>
+            <h2>A quick introduction to who I am and what I build.</h2>
           </div>
 
           <div className="code-layout">
@@ -316,7 +326,7 @@ function App() {
               <div className="code-frame">
                 <div className="code-meta">
                   <span>Hello, it&apos;s Hemant</span>
-                  <span>Portfolio / React / UI Craft</span>
+                  <span>Backend Engineer | Full Stack Developer</span>
                 </div>
 
                 <pre aria-label="Portfolio identity code">
@@ -352,23 +362,24 @@ function App() {
               <div className="code-card">
                 <p className="section-kicker">My Qualification</p>
                 <p>
-                  I joined IIT Roorkee in 2018 and graduated in 2023 with an
-                  Integrated M.Tech (B.Tech + M.Tech) in Geophysical Technology.
-                  During my studies, I worked extensively with remote sensing
-                  and seismic data, developing strong analytical and
-                  data-processing skills. This experience sparked my interest in
-                  data-driven problem solving and ultimately led me to pursue a
-                  career in software development.
+                  I graduated from IIT Roorkee in 2023 with an Integrated M.Tech
+                  in Geophysical Technology. During my academic journey, I
+                  worked extensively with remote sensing, seismic data analysis,
+                  and large datasets, which strengthened my analytical thinking
+                  and problem-solving abilities. Over time, my interest shifted
+                  toward software engineering, leading me to build scalable
+                  backend systems and production-ready applications.
                 </p>
               </div>
 
               <div className="code-card">
                 <p className="section-kicker">Location preference</p>
                 <p>
-                  I am originally from Almora, Uttarakhand, and currently based
-                  in Gurugram, India. I am open to relocating for the right
-                  opportunity and enjoy working in collaborative, fast-paced
-                  environments that foster growth and innovation.
+                  Originally from Almora, Uttarakhand, I am currently based in
+                  Gurugram, India. I enjoy solving challenging engineering
+                  problems and am open to relocation for opportunities that
+                  involve building impactful products alongside high-performing
+                  teams.
                 </p>
               </div>
             </aside>
@@ -378,7 +389,7 @@ function App() {
         <section className="section" id="skills">
           <div className="section-heading reveal">
             <p className="section-kicker">Skills</p>
-            <h2>Technologies and tools I use to build scalable software.</h2>
+            <h2>Technologies I use to design, build, and scale systems.</h2>
           </div>
 
           <div className="skill-grid">
@@ -402,7 +413,10 @@ function App() {
         <section className="section" id="timeline">
           <div className="section-heading reveal">
             <p className="section-kicker">Timeline</p>
-            <h2>A short history of My professional journey.</h2>
+            <h2>
+              A journey through the teams, products, and technologies I've
+              worked with.
+            </h2>
           </div>
 
           <div className="timeline">
@@ -422,7 +436,10 @@ function App() {
         <section className="section" id="projects">
           <div className="section-heading reveal">
             <p className="section-kicker">Projects</p>
-            <h2> Live Demos and Ongoing Project plans</h2>
+            <h2>
+              Projects showcasing engineering approach, system design, and
+              product thinking.
+            </h2>
           </div>
 
           <div className="project-grid">
@@ -453,7 +470,9 @@ function App() {
                           isExternalLink(project.liveUrl) ? "_blank" : undefined
                         }
                         rel={
-                          isExternalLink(project.liveUrl) ? "noreferrer" : undefined
+                          isExternalLink(project.liveUrl)
+                            ? "noreferrer"
+                            : undefined
                         }
                       >
                         Live demo
@@ -479,14 +498,14 @@ function App() {
         <section className="section contact-section" id="contact">
           <div className="section-heading reveal">
             <p className="section-kicker">Contact</p>
-            <h2>Make the next click obvious.</h2>
+            <h2>Let's build something meaningful together.</h2>
           </div>
 
           <div className="contact-card card reveal">
             <p>
               I'm always open to discussing new opportunities, exciting
-              projects, or innovative ideas. Feel free to reach out - I'd be happy
-              to connect and collaborate.
+              projects, or innovative ideas. Feel free to reach out - I'd be
+              happy to connect and collaborate.
             </p>
 
             <div className="contact-links">
@@ -514,4 +533,3 @@ function App() {
 }
 
 export default App;
-
